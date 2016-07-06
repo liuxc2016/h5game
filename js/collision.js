@@ -10,7 +10,8 @@ function checkEat()
 						mon.x, mon.y, 30, 30 );
 			if(a == true)
 			{
-				// console.log("ate fruit \+ " + i);
+				// console.log("ate fruit \+ " + i);				
+				score.eatAdd(i);
 				seed.seedIsEated(i);
 			}
 		}

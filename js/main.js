@@ -5,6 +5,7 @@ var lastTime = new Date();
 var deltaTime ;
 var mx,my;	//保存鼠标位置
 
+var score;
 var canvas1 , canvas2 ; //canvas1背景及背景渲染，canvas2游戏及碰撞渲染层
 var ctx1,ctx2;
 var ctxWidth  = 800 ,
@@ -31,7 +32,8 @@ function play()
 }
 
 function init() {
-
+	score = new Score();
+	score.init();
 	 document.getElementById( 'canvas2' ).addEventListener("mousemove", function (evt) { 
 	  var mousePos = getMousePos(canvas2, evt);
 	  mx = mousePos.x;
