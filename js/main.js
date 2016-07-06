@@ -4,15 +4,18 @@ window.onload = gameStart;
 var lastTime = new Date();
 var deltaTime ;
 var mx,my;	//保存鼠标位置
+
 var canvas1 , canvas2 ; //canvas1背景及背景渲染，canvas2游戏及碰撞渲染层
 var ctx1,ctx2;
 var ctxWidth  = 800 ,
 	ctxHeight = 600 ;
-
-var backimage ,ane;
-var seed;
-
-var mon ;
+var backimage;
+//海葵，种子
+var ane , seed;
+//鱼妈妈，小鱼儿
+var mon , baby ;
+var monTail = [], monEye = [], monBody = [];
+var babyTail = [], babyEye = [], babyBody = [];
 
 //游戏流程
 function gameStart(){
@@ -45,6 +48,28 @@ function init() {
     backimage = new Image();
     backimage.src = "./source/background.jpg";
 
+    for(var i =0 ;i<8; i++)
+    {
+    	babyTail[i] = new Image();
+    	babyTail[i].src = "./source/bigTail"+i+".png";
+    	monTail[i] = new Image();
+    	monTail[i].src = "./source/bigTail"+i+".png";
+    }
+    for(var k=0; k<2 ; k++)
+    {
+    	babyEye[k] = new Image();
+    	babyEye[k].src = "./source/babyEye"+k+".png";
+    	monEye[k] = new Image();
+    	monEye[k].src = "./source/bigEye"+k+".png";
+    }
+
+    for(var k=0; k<20 ; k++)
+    {
+    	babyBody[k] = new Image();
+    	babyBody[k].src = "./source/babyFade"+k+".png";
+    }
+
+
 	ane = new Ane();
 	ane.init();
 
@@ -64,7 +89,7 @@ function draw()
 	if(deltaTime>40)
 		deltaTime = 30;
 	lastTime = now;
-	// console.log(deltaTime);
+
 	ctx1.drawImage(backimage,0,0);
 
 	ane.draw(ctx1);
@@ -76,6 +101,7 @@ function draw()
 	baby.draw(ctx2);
 
 	checkEat();
+	checkBreed();
 
 }
 
