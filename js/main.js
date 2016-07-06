@@ -105,5 +105,7 @@ function draw()
 	checkEat();
 	checkBreed();
 
+	score.draw();
+
 }
 

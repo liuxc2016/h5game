@@ -20,9 +20,8 @@ function checkEat()
 function checkBreed() {
 	if(distance2(mon.x,mon.y,baby.x,baby.y) < 400 )
 	{
-		if(baby.babyBodyCount > 0 )
-			baby.babyBodyCount -= 1;
-		console.log("喂小鱼了？");;
+
+		score.breedBaby();
 	}
 }
 function testPosition(x1,y1,w1,h1,x2,y2,w2,h2)
