@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>imooc h5游戏开发</title>
+	<script src="./js/main.js"></script>
+	<script src="./js/functions.js"></script>
+	<script src="./js/ane.js"></script>
+	<script src="./js/seed.js"></script>
+	<script src="./js/mon.js"></script>
+	<script src="./js/baby.js"></script>
+	<script src="./js/collision.js"></script>
+	<style>
+		.candiv{
+			width:800px;
+			height: 600px;
+			border:1px solid #ee9;
+			margin:10px auto;
+			position: relative;
+		}
+		#canvas1{
+			position: absolute;
+			left:0;
+			top:0;
+			z-index: 10;
+		}
+		#canvas2{
+			position: absolute;
+			left:0;
+			top:0;
+			z-index: 20;
+		}
+	</style>
+</head>
+<body>
+	<div class="candiv">
+		<canvas id="canvas2" width="800" height="600"></canvas>
+		<canvas id="canvas1" width="800" height="600"></canvas>
+	</div>
+</body>
+</html>
