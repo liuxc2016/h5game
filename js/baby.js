@@ -73,7 +73,7 @@ Baby.prototype.draw = function(ctx)
 		if(this.babyBodyCount > 19 )
 		{
 			this.babyBodyCount = 19;
-			console.log("小鱼要死了");
+			score.gameOver = true;
 		}
 	}
 

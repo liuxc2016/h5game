@@ -10,18 +10,24 @@ function checkEat()
 						mon.x, mon.y, 30, 30 );
 			if(a == true)
 			{
-				// console.log("ate fruit \+ " + i);				
+				// console.log("ate fruit \+ " + i);	
+				wave.born(mon.x, mon.y);			
 				score.eatAdd(i);
 				seed.seedIsEated(i);
+				mon.eatAdd(i);				
 			}
 		}
 	}
 }
 function checkBreed() {
-	if(distance2(mon.x,mon.y,baby.x,baby.y) < 400 )
+	if(distance2(mon.x,mon.y,baby.x,baby.y) < 400)
 	{
-
-		score.breedBaby();
+		// console.log(score.seedTake);
+		if(score.seedTake > 0)
+		{	
+			score.breedBaby();
+			mon.breedBaby();
+		}
 	}
 }
 function testPosition(x1,y1,w1,h1,x2,y2,w2,h2)

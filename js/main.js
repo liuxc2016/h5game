@@ -15,8 +15,10 @@ var backimage;
 var ane , seed;
 //鱼妈妈，小鱼儿
 var mon , baby ;
-var monTail = [], monEye = [], monBody = [];
+var monTail = [], monEye = [], monBodyBlue = [], monBodyOrange = [];
 var babyTail = [], babyEye = [], babyBody = [];
+
+var wave;
 
 //游戏流程
 function gameStart(){
@@ -49,13 +51,20 @@ function init() {
     ctx2 = canvas2.getContext( '2d' );
     backimage = new Image();
     backimage.src = "./source/background.jpg";
+	ctx2.font = "20px Verdana";
+	ctx2.textAlign = "center";
+
 
     for(var i =0 ;i<8; i++)
     {
-    	babyTail[i] = new Image();
-    	babyTail[i].src = "./source/bigTail"+i+".png";
-    	monTail[i] = new Image();
-    	monTail[i].src = "./source/bigTail"+i+".png";
+    	babyTail[i]      = new Image();
+    	babyTail[i].src  = "./source/bigTail"+i+".png";
+    	monTail[i]       = new Image();
+    	monTail[i].src   = "./source/bigTail"+i+".png";
+    	monBodyOrange[i] = new Image();
+    	monBodyBlue[i]   = new Image() 
+    	monBodyOrange[i].src = "./source/bigSwim"+i+".png";
+    	monBodyBlue[i].src   = "./source/bigSwimBlue"+i+".png";
     }
     for(var k=0; k<2 ; k++)
     {
@@ -83,6 +92,9 @@ function init() {
 
 	baby = new Baby();
 	baby.init();
+
+	wave = new Wave();
+	wave.init();
 }
 function draw()
 {
@@ -105,6 +117,8 @@ function draw()
 	checkEat();
 	checkBreed();
 
+	wave.draw();
+	
 	score.draw();
 
 }
